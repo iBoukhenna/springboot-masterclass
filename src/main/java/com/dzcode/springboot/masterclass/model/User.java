@@ -1,74 +1,37 @@
 package com.dzcode.springboot.masterclass.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+
+import static javax.persistence.FetchType.EAGER;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    @Column(name="user_name")
-    private String userName;
-
-    @Column(name="password")
-    private String password;
-
-    @Column(name="email")
+    private String name;
+    private String username;
     private String email;
-
-    @Column(name="mobile")
     private String mobile;
 
-    public User() {}
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String password;
 
-    public User(String userName, String password, String email, String mobile) {
-        super();
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
-        this.mobile = mobile;
-    }
+    @ManyToMany(fetch = EAGER)
+    @Column(name = "user_roles")
+    private Collection<Role> roles = new ArrayList<>();
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
 }

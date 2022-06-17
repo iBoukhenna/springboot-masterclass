@@ -1,0 +1,24 @@
+services:
+  postgres.dzcode:
+    container_name: postgres.dzcode
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+  springboot.dzcode:
+    build:
+      context: '.'
+    container_name: springboot.dzcode
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres.dzcode
+
+volumes:
+  postgres:

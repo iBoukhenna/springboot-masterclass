@@ -13,3 +13,10 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: create
+security:
+  jwt:
+    secret: 3oQ7>}$qtysG)u~jpU>/{>Me=j26m3Dr"jV]r`,/DGJM9xubxrCsebL;:/u}~.c
+    accessTokenExpiration:  86400000
+    refreshTokenExpiration: 43200000
+    loginPath: /api/login
+    refreshTokenPath: /api/token/refresh

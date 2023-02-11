@@ -1,7 +1,6 @@
-package com.dzcode.springboot.masterclass;
+package com.dzcode.springboot.masterclass.basic;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component

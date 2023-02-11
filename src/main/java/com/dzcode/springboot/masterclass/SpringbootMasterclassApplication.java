@@ -14,6 +14,11 @@ public class SpringbootMasterclassApplication {
 	public static void main(String[] args) {
 		ApplicationContext applicationContext =  SpringApplication.run(SpringbootMasterclassApplication.class, args);
 		BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
+		BinarySearchImpl binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
+
+		// Default Bean scope is singleton
+		System.out.println(binarySearch);
+		System.out.println(binarySearch1);
 		// Loosely coupled : to switch change the algorithm only here
 		// only one algorithm is enable to be bean with @Component
 		int result  = binarySearch.binarySearch(new int[]{124, 6}, 3);

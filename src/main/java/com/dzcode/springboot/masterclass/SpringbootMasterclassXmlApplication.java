@@ -12,6 +12,8 @@ public class SpringbootMasterclassXmlApplication {
 
 	public static void main(String[] args) {
 		try (ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml")) {
+			LOGGER.info("Beans loaded -> {}", (Object) applicationContext.getBeanDefinitionNames());
+
 			XmlPersonDAO xmlpersonDAO = applicationContext.getBean(XmlPersonDAO.class);
 
 			LOGGER.info("{}", xmlpersonDAO);

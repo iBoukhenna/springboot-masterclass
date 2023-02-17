@@ -1,28 +1,38 @@
 package com.dzcode.springboot.masterclass.business;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 public class SomeBusinessImplMockTest {
+
+    @Mock
+    private  DataService dataServiceMock;
+
+    @InjectMocks
+    private SomeBusinessImpl someBusinessImpl;
 
     @Test
     void findTheGreatestFromAllDataTest() {
-        DataService dataServiceMock = mock(DataService.class);
         when(dataServiceMock.retrieveAllData()).thenReturn(new int[] {25, 15,5});
-        SomeBusinessImpl someBusinessImpl = new SomeBusinessImpl(dataServiceMock);
-        int result = someBusinessImpl.findTheGreatestFromAllData();
-        assertEquals(25, result);
+        assertEquals(25, someBusinessImpl.findTheGreatestFromAllData());
     }
 
     @Test
     void findTheGreatestFromAllDataTest_withOneValue() {
-        DataService dataServiceMock = mock(DataService.class);
         when(dataServiceMock.retrieveAllData()).thenReturn(new int[] {35});
-        SomeBusinessImpl someBusinessImpl = new SomeBusinessImpl(dataServiceMock);
-        int result = someBusinessImpl.findTheGreatestFromAllData();
-        assertEquals(35, result);
+        assertEquals(35, someBusinessImpl.findTheGreatestFromAllData());
+    }
+
+    @Test
+    void findTheGreatestFromAllDataTest_withEmptyArray() {
+        when(dataServiceMock.retrieveAllData()).thenReturn(new int[] {});
+        assertEquals(Integer.MIN_VALUE, someBusinessImpl.findTheGreatestFromAllData());
     }
 }

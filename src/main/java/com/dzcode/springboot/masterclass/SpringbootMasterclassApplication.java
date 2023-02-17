@@ -1,11 +1,13 @@
 package com.dzcode.springboot.masterclass;
 
 import com.dzcode.springboot.masterclass.basic.BinarySearchImpl;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication
+@Configuration
+@ComponentScan
 public class SpringbootMasterclassApplication {
 
 	// What are the beans ? -> @Component
@@ -13,7 +15,7 @@ public class SpringbootMasterclassApplication {
 	// Where to search for beans ? -> in this package with @ComponentScan in @SpringBootApplication
 	// Where would all these beans be managed ? -> in SpringApplicationContext
 	public static void main(String[] args) {
-		ApplicationContext applicationContext =  SpringApplication.run(SpringbootMasterclassApplication.class, args);
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringbootMasterclassApplication.class);
 		BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
 		BinarySearchImpl binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
 

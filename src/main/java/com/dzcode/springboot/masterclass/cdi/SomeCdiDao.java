@@ -1,6 +1,6 @@
 package com.dzcode.springboot.masterclass.cdi;
 
-import javax.inject.Named;
+import jakarta.inject.Named;
 
 @Named
 public class SomeCdiDao {

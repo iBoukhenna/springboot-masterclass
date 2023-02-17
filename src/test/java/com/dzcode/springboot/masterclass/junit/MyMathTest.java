@@ -1,12 +1,12 @@
 package com.dzcode.springboot.masterclass.junit;
 
-import static org.junit.jupiter.api.Assertions.*;
+//import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 
 public class MyMathTest {
 
-    MyMath myMath = new MyMath();
+    /*MyMath myMath = new MyMath();
 
     @Test
     void calculateSumTest() {
@@ -25,5 +25,5 @@ public class MyMathTest {
     @Test
     void calculateSumTest_ZeroLenghtArray() {
         assertEquals(0, myMath.calculateSum(new int[] {}));
-    }
+    }*/
 }

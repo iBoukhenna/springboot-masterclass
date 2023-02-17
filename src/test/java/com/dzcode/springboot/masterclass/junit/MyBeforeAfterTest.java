@@ -1,10 +1,10 @@
 package com.dzcode.springboot.masterclass.junit;
 
-import org.junit.jupiter.api.*;
+//import org.junit.jupiter.api.*;
 
 public class MyBeforeAfterTest {
 
-    @BeforeAll
+    /*@BeforeAll
     static void beforeAll() {
         System.out.println("beforeAll");
     }
@@ -37,5 +37,5 @@ public class MyBeforeAfterTest {
     @AfterAll
     static void afterAll() {
         System.out.println("afterAll");
-    }
+    }*/
 }

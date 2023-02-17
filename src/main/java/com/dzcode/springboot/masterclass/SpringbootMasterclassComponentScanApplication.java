@@ -15,10 +15,11 @@ public class SpringbootMasterclassComponentScanApplication {
 	public static Logger LOGGER = LoggerFactory.getLogger(SpringbootMasterclassComponentScanApplication.class);
 
 	public static void main(String[] args) {
-		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringbootMasterclassComponentScanApplication.class);
-		ComponentDAO componentDAO = applicationContext.getBean(ComponentDAO.class);
+		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringbootMasterclassComponentScanApplication.class)) {
+			ComponentDAO componentDAO = applicationContext.getBean(ComponentDAO.class);
 
-		LOGGER.info("{}", componentDAO);
+			LOGGER.info("{}", componentDAO);
+		}
 	}
 
 }

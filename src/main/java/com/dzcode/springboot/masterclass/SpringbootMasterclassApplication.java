@@ -15,17 +15,18 @@ public class SpringbootMasterclassApplication {
 	// Where to search for beans ? -> in this package with @ComponentScan in @SpringBootApplication
 	// Where would all these beans be managed ? -> in SpringApplicationContext
 	public static void main(String[] args) {
-		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringbootMasterclassApplication.class);
-		BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
-		BinarySearchImpl binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
+		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringbootMasterclassApplication.class)) {
+			BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
+			BinarySearchImpl binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
 
-		// Default Bean scope is singleton
-		System.out.println(binarySearch);
-		System.out.println(binarySearch1);
-		// Loosely coupled : to switch change the algorithm only here
-		// only one algorithm is enable to be bean with @Component
-		int result  = binarySearch.binarySearch(new int[]{124, 6}, 3);
-		System.out.println("the result is : " + result);
+			// Default Bean scope is singleton
+			System.out.println(binarySearch);
+			System.out.println(binarySearch1);
+			// Loosely coupled : to switch change the algorithm only here
+			// only one algorithm is enable to be bean with @Component
+			int result  = binarySearch.binarySearch(new int[]{124, 6}, 3);
+			System.out.println("the result is : " + result);
+		}
 	}
 
 }

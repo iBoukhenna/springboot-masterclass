@@ -15,10 +15,12 @@ public class SpringbootMasterclassCdiApplication {
 	public static Logger LOGGER = LoggerFactory.getLogger(SpringbootMasterclassCdiApplication.class);
 
 	public static void main(String[] args) {
-		ApplicationContext applicationContext =  new AnnotationConfigApplicationContext(SpringbootMasterclassCdiApplication.class);
+		AnnotationConfigApplicationContext applicationContext =  new AnnotationConfigApplicationContext(SpringbootMasterclassCdiApplication.class);
 		SomeCdiBusiness someCdiBusiness = applicationContext.getBean(SomeCdiBusiness.class);
 
 		LOGGER.info("{} dao-{}", someCdiBusiness, someCdiBusiness.getSomeCdiDao());
+
+		applicationContext.close();
 	}
 
 }

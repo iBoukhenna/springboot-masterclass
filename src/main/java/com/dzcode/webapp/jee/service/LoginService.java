@@ -1,4 +1,4 @@
-package com.dzcode.jee.service;
+package com.dzcode.webapp.jee.service;
 
 public class LoginService {
 

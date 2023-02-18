@@ -1,6 +1,6 @@
-package com.dzcode.jee.webapp;
+package com.dzcode.webapp.jee.controller;
 
-import com.dzcode.jee.service.LoginService;
+import com.dzcode.webapp.jee.service.LoginService;
 
 import java.io.IOException;
 

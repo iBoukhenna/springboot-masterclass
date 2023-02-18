@@ -17,4 +17,8 @@ public class CommonJoinPointConfig {
 
     @Pointcut("within(com.dzcode.springboot.masterclass.data..*)")
     public void dataLayerExecutionWithWithin() {}
+
+    @Pointcut("@annotation(com.dzcode.springboot.masterclass.aspect.TrackTime)")
+    public void trackTimeAnnotation() {}
+
 }

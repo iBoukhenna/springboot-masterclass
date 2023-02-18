@@ -14,7 +14,7 @@ public class AroundAspect {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Around("com.dzcode.springboot.masterclass.aspect.CommonJoinPointConfig.businessLayerExecution()")
+    @Around("com.dzcode.springboot.masterclass.aspect.CommonJoinPointConfig.trackTimeAnnotation()")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
         Object result = proceedingJoinPoint.proceed();

@@ -12,21 +12,21 @@ public class AfterAspect {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @AfterReturning(value="execution(* com.dzcode.springboot.masterclass.business.*.*(..))",
+    @AfterReturning(value="com.dzcode.springboot.masterclass.aspect.CommonJoinPointConfig.dataLayerExecution()",
                     returning="result"
     )
     public void afterReturning(JoinPoint joinPoint, Object result) {
         logger.info("{} returned with value {}", joinPoint, result);
     }
 
-    @AfterThrowing(value="execution(* com.dzcode.springboot.masterclass.business.*.*(..))",
+    @AfterThrowing(value="com.dzcode.springboot.masterclass.aspect.CommonJoinPointConfig.dataLayerExecution()",
             throwing="exception"
     )
     public void afterThrowing(JoinPoint joinPoint, Exception exception) {
         logger.info("{} throw exception {}", joinPoint, exception);
     }
 
-    @After(value="execution(* com.dzcode.springboot.masterclass.business.*.*(..))")
+    @After(value="com.dzcode.springboot.masterclass.aspect.CommonJoinPointConfig.dataLayerExecution()")
     public void after(JoinPoint joinPoint) {
         logger.info("after execution of {}", joinPoint);
     }

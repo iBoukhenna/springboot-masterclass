@@ -13,7 +13,7 @@ public class BeforeAspect {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Before("execution(* com.dzcode.springboot.masterclass.business.*.*(..))")
+    @Before("com.dzcode.springboot.masterclass.aspect.CommonJoinPointConfig.dataLayerExecution()")
     public void before(JoinPoint joinPoint) {
         logger.info("Check for user access");
         logger.info("Allowed execution for {}", joinPoint);

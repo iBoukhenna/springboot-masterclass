@@ -7,7 +7,10 @@
 </head>
 <body>
 <form action="/login.do" method="post">
-    Enter your name  : <input type="text" name="name" /> <input type="submit" value="login" />
+    <p style="color: red;">${errorMessage}</p>
+    Enter your name  : <input type="text" name="name" />
+    Enter your password  : <input type="password" name="password" />
+    <input type="submit" value="login" />
 </form>
 
 </body>

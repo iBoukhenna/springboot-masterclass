@@ -1,5 +1,8 @@
 package com.dzcode.webapp.springmvc.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class LoginSpringService {
 
     public boolean isUserValid(String name, String password) {

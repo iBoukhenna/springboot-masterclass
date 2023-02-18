@@ -28,6 +28,7 @@ public class SpringbootMasterclassJpaApplication implements CommandLineRunner {
 		logger.info("create -> no of row created - {}", userJpaRepository.create(new User("James", "New York", new Date())));
 		logger.info("retrieve person by id 1 -> {}", userJpaRepository.findById(1));
 		logger.info("update 1 -> no of row updated - {}", userJpaRepository.update(new User(1, "Ibrahim", "Algiers", new Date())));
+		logger.info("All users -> {}", userJpaRepository.findAll());
 		logger.info("delete 1 -> no of row deleted");
 		userJpaRepository.deleteById(1);
 	}
